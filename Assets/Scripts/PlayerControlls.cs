@@ -1,30 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControlls : MonoBehaviour
 {
     [SerializeField]
     private float _acceleration;
+
+    [SerializeField]
+    private Transform _firePoint;
+
+    [SerializeField]
     private Rigidbody2D _rb;
 
     [SerializeField]
     private GameObject _bullet;
 
-    // Start is called before the first frame update
-    void Start()
+    private GameManager _gameManager;
+    private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _gameManager = GameManager.Instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
         SetRotation();
 
-        if(Input.GetKey(KeyCode.W))
+        if(Input.anyKey)
         {
-            AddForce(1);
+            if (Input.GetKey(KeyCode.W))
+            {
+                AddForce(1);
+            }
+
+            if(Input.GetKey(KeyCode.Mouse0))
+            {
+                Fire();
+            }
         }
     }
 
@@ -40,11 +53,20 @@ public class PlayerControlls : MonoBehaviour
 
     private void Fire()
     {
-        Instantiate(_bullet, transform);
+        GameObject obj = Instantiate(_bullet, _firePoint.position, transform.rotation,null);
     }
 
     private void AddForce(int dir)
     {
         _rb.AddForce(dir *_acceleration * Time.deltaTime * transform.up);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        IEnemy enemy = collision.gameObject.GetComponent<IEnemy>();
+        if (enemy != null)
+        {
+            _gameManager.GameOver();
+        }
     }
 }

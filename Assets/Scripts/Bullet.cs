@@ -1,26 +1,37 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField]
     private Rigidbody2D _rb;
 
     [SerializeField]
     private float _acceleration;
 
+    [SerializeField]
+    private float _lifeTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, _lifeTime);
+        InitialSpeed();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void InitialSpeed()
     {
-        AddForce();
+        _rb.velocity = 10 * transform.up;
     }
 
-    private void AddForce()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        _rb.AddForce(_acceleration * Time.fixedDeltaTime * transform.up);
+        IEnemy enemy = collision.gameObject.GetComponent<IEnemy>();
+        if (enemy != null)
+        {
+            enemy.Damage(1);
+            Destroy(gameObject);
+        }
     }
+
 }
