@@ -5,6 +5,8 @@ namespace PlayerECS
 {
     public class PlayerAuthoring:MonoBehaviour
     {
+        public Quaternion Rotation;
+
         class Baker : Baker<PlayerAuthoring>
         {
             public override void Bake (PlayerAuthoring playerAuthoring)
@@ -13,6 +15,10 @@ namespace PlayerECS
 
                 AddComponent<Player>(entity);
                 AddComponent<PlayerMovement>(entity);
+                AddComponent(entity, new PlayerRotation
+                    {
+                    Rotation = playerAuthoring.Rotation
+                });
             }
         }
     }
@@ -24,5 +30,10 @@ namespace PlayerECS
     public struct PlayerMovement : IComponentData
     {
 
+    }
+
+    public struct PlayerRotation : IComponentData
+    {
+        public Quaternion Rotation;
     }
 }

@@ -20,14 +20,12 @@ namespace PlayerECS
         {
             var gameManager = SystemAPI.GetSingleton<GameManagerECS>();
 
-            var horizontal = Input.GetAxis("Horizontal");
             var vertical = Input.GetAxis("Vertical");
-            var input = new float3();
 
-            if(input.Equals(float3.zero))
-            {
-                return;
-            }
+            if (vertical.Equals(0))
+            { return; }
+
+
         }
     }
 
