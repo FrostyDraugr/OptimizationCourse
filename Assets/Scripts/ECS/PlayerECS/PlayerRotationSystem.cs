@@ -20,7 +20,9 @@ namespace PlayerECS
             var gameManager = SystemAPI.GetSingleton<GameManagerECS>();
 
             var mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            //Burst Compile Error, have to make this some other way.
+            //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
             //Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
             //transform.rotation = rot;
