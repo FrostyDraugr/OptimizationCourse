@@ -2,7 +2,7 @@ using Unity.Entities;
 using UnityEngine;
 
 
-namespace CoreECS
+namespace CoreECS.Execute
 {
     public class ExecuteAuthoring : MonoBehaviour
     {
@@ -18,18 +18,18 @@ namespace CoreECS
             {
                 var entity = GetEntity(TransformUsageFlags.None);
 
-                if(authoring.SpawnPlayer) AddComponent<ExecutePlayerSpawner>(entity);
-                if(authoring.SpawnAsteroids) AddComponent<ExecuteAsteroidSpawner>(entity);
+                if(authoring.SpawnPlayer) AddComponent<PlayerSpawner>(entity);
+                if(authoring.SpawnAsteroids) AddComponent<AsteroidSpawner>(entity);
             }
         }
     }
 
-    public struct ExecutePlayerSpawner : IComponentData
+    public struct PlayerSpawner : IComponentData
     {
 
     }
 
-    public struct ExecuteAsteroidSpawner : IComponentData
+    public struct AsteroidSpawner : IComponentData
     {
     
     }

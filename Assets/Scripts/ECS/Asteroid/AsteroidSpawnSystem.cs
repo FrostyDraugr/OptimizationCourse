@@ -1,11 +1,8 @@
 using CoreECS;
-using System.Linq.Expressions;
 using Unity.Burst;
-using Unity.Burst.Intrinsics;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine.UIElements;
 
 namespace AsteroidECS
 {
@@ -16,7 +13,7 @@ namespace AsteroidECS
         {
             state.RequireForUpdate<GameManagerECS>();
 
-            state.RequireForUpdate<ExecuteAsteroidSpawner>();
+            state.RequireForUpdate<CoreECS.Execute.AsteroidSpawner>();
         }
 
         [BurstCompile]
@@ -33,7 +30,7 @@ namespace AsteroidECS
 
                 state.EntityManager.SetComponentData(asteroid, new LocalTransform
                 {
-                    Position = new float3(0, 0, 0),
+                    Position = new float3(i+5, i+5, 0),
                     Scale = scale,
                     Rotation = quaternion.identity
                 });
