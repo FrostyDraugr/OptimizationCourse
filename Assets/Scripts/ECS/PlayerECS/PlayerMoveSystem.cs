@@ -7,6 +7,7 @@ using CoreECS;
 
 namespace PlayerECS
 {
+    [UpdateBefore(typeof(TransformSystemGroup))]
     public partial struct PlayerMoveSystem : ISystem
     {
         [BurstCompile]

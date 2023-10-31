@@ -12,6 +12,7 @@ namespace CoreECS.Execute
 
         [Header("Spawn AsteroidSpawner")]
         public bool SpawnAsteroids;
+        public bool AsteroidMover;
 
         class Baker : Baker<ExecuteAuthoring>
         {
@@ -20,15 +21,16 @@ namespace CoreECS.Execute
                 var entity = GetEntity(TransformUsageFlags.None);
 
                 if(authoring.SpawnPlayer) AddComponent<PlayerSpawner>(entity);
-                if(authoring.SpawnAsteroids) AddComponent<AsteroidSpawner>(entity);
                 if(authoring.PlayerMovement) AddComponent<PlayerMovement>(entity);
+                if(authoring.SpawnAsteroids) AddComponent<AsteroidSpawner>(entity);
+                if(authoring.AsteroidMover) AddComponent<AsteroidMover>(entity);
             }
         }
     }
 
     public struct PlayerSpawner : IComponentData
     {
-
+    
     }
 
     public struct PlayerMovement : IComponentData
@@ -39,5 +41,10 @@ namespace CoreECS.Execute
     public struct AsteroidSpawner : IComponentData
     {
     
+    }
+
+    public struct AsteroidMover : IComponentData
+    {
+
     }
 }

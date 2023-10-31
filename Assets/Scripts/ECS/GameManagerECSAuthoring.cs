@@ -8,6 +8,7 @@ namespace CoreECS
     {
         public float PlayerSpeed;
         public float BulletSpeed;
+        public float FireCoolDown;
         public float AsteroidSpeed;
         public float AsteroidSize;
         public float2 ScreenSize;
@@ -26,10 +27,10 @@ namespace CoreECS
                 {
                     PlayerSpeed = authoring.PlayerSpeed,
                     BulletSpeed = authoring.BulletSpeed,
+                    FireCoolDown = authoring.FireCoolDown,
                     AsteroidSpeed = authoring.AsteroidSpeed,
                     AsteroidSize = authoring.AsteroidSize,
                     ScreenSize = authoring.ScreenSize,
-
 
                     PlayerPrefab = GetEntity(authoring.PlayerPrefab, TransformUsageFlags.Dynamic),
                     AsteroidPrefab = GetEntity(authoring.AsteroidPrefab, TransformUsageFlags.Dynamic),
@@ -45,6 +46,7 @@ namespace CoreECS
     {
         public float PlayerSpeed;
         public float BulletSpeed;
+        public float FireCoolDown;
         public float AsteroidSpeed;
         public float AsteroidSize;
         public float2 ScreenSize;

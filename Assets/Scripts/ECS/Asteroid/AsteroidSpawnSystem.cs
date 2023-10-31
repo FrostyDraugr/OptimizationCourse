@@ -19,6 +19,7 @@ namespace AsteroidECS
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
+            //TempRunOnce
             state.Enabled = false;
 
             GameManagerECS gameManager = SystemAPI.GetSingleton<GameManagerECS>();
