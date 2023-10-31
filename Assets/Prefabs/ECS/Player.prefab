@@ -97,4 +97,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: face52b30596a6146a7442dd10944504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotation: {x: 0, y: 0, z: 0, w: 0}

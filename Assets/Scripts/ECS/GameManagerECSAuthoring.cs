@@ -1,4 +1,5 @@
 using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace CoreECS
@@ -9,6 +10,7 @@ namespace CoreECS
         public float BulletSpeed;
         public float AsteroidSpeed;
         public float AsteroidSize;
+        public float2 ScreenSize;
         public GameObject PlayerPrefab;
         public GameObject AsteroidPrefab;
         public GameObject BulletPrefab;
@@ -26,6 +28,7 @@ namespace CoreECS
                     BulletSpeed = authoring.BulletSpeed,
                     AsteroidSpeed = authoring.AsteroidSpeed,
                     AsteroidSize = authoring.AsteroidSize,
+                    ScreenSize = authoring.ScreenSize,
 
 
                     PlayerPrefab = GetEntity(authoring.PlayerPrefab, TransformUsageFlags.Dynamic),
@@ -44,6 +47,7 @@ namespace CoreECS
         public float BulletSpeed;
         public float AsteroidSpeed;
         public float AsteroidSize;
+        public float2 ScreenSize;
         public Entity PlayerPrefab;
         public Entity AsteroidPrefab;
         public Entity BulletPrefab;

@@ -135,9 +135,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManagerECS
       objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: PlayerSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: SpawnPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: PlayerMovement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: SpawnAsteroids
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7478676720424029355, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: m_LocalPosition.x

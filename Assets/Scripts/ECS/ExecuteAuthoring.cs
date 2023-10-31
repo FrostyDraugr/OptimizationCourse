@@ -6,8 +6,9 @@ namespace CoreECS.Execute
 {
     public class ExecuteAuthoring : MonoBehaviour
     {
-        [Header("Spawn Player")]
+        [Header("Player")]
         public bool SpawnPlayer;
+        public bool PlayerMovement;
 
         [Header("Spawn AsteroidSpawner")]
         public bool SpawnAsteroids;
@@ -20,11 +21,17 @@ namespace CoreECS.Execute
 
                 if(authoring.SpawnPlayer) AddComponent<PlayerSpawner>(entity);
                 if(authoring.SpawnAsteroids) AddComponent<AsteroidSpawner>(entity);
+                if(authoring.PlayerMovement) AddComponent<PlayerMovement>(entity);
             }
         }
     }
 
     public struct PlayerSpawner : IComponentData
+    {
+
+    }
+
+    public struct PlayerMovement : IComponentData
     {
 
     }

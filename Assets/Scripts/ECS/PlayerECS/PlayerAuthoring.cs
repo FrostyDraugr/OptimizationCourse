@@ -5,7 +5,6 @@ namespace PlayerECS
 {
     public class PlayerAuthoring:MonoBehaviour
     {
-        public Quaternion Rotation;
 
         class Baker : Baker<PlayerAuthoring>
         {
@@ -13,11 +12,13 @@ namespace PlayerECS
             {
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
 
-                AddComponent<Player>(entity);
-                AddComponent<PlayerMovement>(entity);
-                AddComponent(entity, new PlayerRotation
-                    {
-                    Rotation = playerAuthoring.Rotation
+                AddComponent(entity, new Player
+                {
+                    Entity = entity
+                });
+                AddComponent(entity, new PlayerMovement
+                {
+                    Entity = entity
                 });
             }
         }
@@ -25,15 +26,10 @@ namespace PlayerECS
 
     public struct Player : IComponentData
     {
-
+        public Entity Entity;
     }
     public struct PlayerMovement : IComponentData
     {
-
-    }
-
-    public struct PlayerRotation : IComponentData
-    {
-        public Quaternion Rotation;
+        public Entity Entity;
     }
 }

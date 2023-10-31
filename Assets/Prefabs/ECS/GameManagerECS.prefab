@@ -49,6 +49,9 @@ MonoBehaviour:
   BulletSpeed: 1
   AsteroidSpeed: 1
   AsteroidSize: 1
+  ScreenSize:
+    x: 17
+    y: 9
   PlayerPrefab: {fileID: 7959756263687130379, guid: 47fcb72728bd2464791ef9938d1476e8, type: 3}
   AsteroidPrefab: {fileID: 4616730803946354224, guid: 2adc006999a614c4caa1750fdabf9335, type: 3}
   BulletPrefab: {fileID: 4616730803946354224, guid: 2adc006999a614c4caa1750fdabf9335, type: 3}
@@ -65,4 +68,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPlayer: 0
+  PlayerMovement: 0
   SpawnAsteroids: 0
