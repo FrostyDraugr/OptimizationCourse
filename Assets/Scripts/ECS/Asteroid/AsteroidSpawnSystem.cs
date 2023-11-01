@@ -1,10 +1,8 @@
 using CoreECS;
-using System.Diagnostics;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace AsteroidECS
 {
