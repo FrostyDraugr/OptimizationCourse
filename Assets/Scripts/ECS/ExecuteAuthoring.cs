@@ -6,11 +6,13 @@ namespace CoreECS.Execute
 {
     public class ExecuteAuthoring : MonoBehaviour
     {
-        [Header("Player")]
+        //So I can choose what systems are active in the game.
+        [Header("Player Systems")]
         public bool SpawnPlayer;
         public bool PlayerMovement;
+        public bool BulletSpawner;
 
-        [Header("Spawn AsteroidSpawner")]
+        [Header("Asteroid Systems")]
         public bool SpawnAsteroids;
         public bool AsteroidMover;
 
@@ -22,6 +24,8 @@ namespace CoreECS.Execute
 
                 if(authoring.SpawnPlayer) AddComponent<PlayerSpawner>(entity);
                 if(authoring.PlayerMovement) AddComponent<PlayerMovement>(entity);
+                if (authoring.BulletSpawner) AddComponent<BulletSpawner>(entity);
+
                 if(authoring.SpawnAsteroids) AddComponent<AsteroidSpawner>(entity);
                 if(authoring.AsteroidMover) AddComponent<AsteroidMover>(entity);
 
@@ -46,6 +50,11 @@ namespace CoreECS.Execute
     }
 
     public struct AsteroidMover : IComponentData
+    {
+
+    }
+
+    public struct BulletSpawner : IComponentData
     {
 
     }

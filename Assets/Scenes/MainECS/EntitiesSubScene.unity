@@ -136,8 +136,12 @@ PrefabInstance:
       value: GameManagerECS
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: BulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: PlayerDeath
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: PlayerSpeed
@@ -177,6 +181,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: SpawnPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: BulletSpawner
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}

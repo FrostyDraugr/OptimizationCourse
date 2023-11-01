@@ -5,8 +5,8 @@ namespace BulletECS
 {
     public class BulletAuthoring : MonoBehaviour
     {
-            class Baker : Baker<BulletAuthoring>
-            {
+        class Baker : Baker<BulletAuthoring>
+        {
             public override void Bake(BulletAuthoring authoring)
             {
                 Entity entity = GetEntity(TransformUsageFlags.Dynamic);

@@ -3,9 +3,11 @@ using CoreECS;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
+using Unity.Mathematics;
 
 namespace BulletECS
-{ 
+{
+    [UpdateBefore(typeof(TransformSystemGroup))]
     public partial struct BulletMoveSystem : ISystem
     {
         [BurstCompile]
@@ -22,10 +24,15 @@ namespace BulletECS
 
             foreach (var (bulletTransform, entity) in SystemAPI.Query<RefRW<LocalTransform>>().WithAll<BulletMovement>().WithEntityAccess())
             {
-                bulletTransform.ValueRW.Position.y += (gameManager.BulletSpeed * SystemAPI.Time.DeltaTime);
+                //var oldPos = bulletTransform.ValueRO.Position;
+                //var offSet = new float3(0, SystemAPI.Time.DeltaTime * gameManager.BulletSpeed,0);
+
+                //bulletTransform.ValueRW.Position = oldPos + offSet;
+
+                bulletTransform.ValueRW.Position.y += SystemAPI.Time.DeltaTime * gameManager.BulletSpeed;
 
                 //Add Entity to Destroy Buffer
-                if (bulletTransform.ValueRW.Position.y < gameManager.ScreenSize.y + 1)
+                if (bulletTransform.ValueRW.Position.y > gameManager.ScreenSize.y + 1)
                     SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged).DestroyEntity(entity);
             }
         }
