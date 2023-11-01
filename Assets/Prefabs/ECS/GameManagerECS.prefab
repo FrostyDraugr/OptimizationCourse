@@ -46,21 +46,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 20
-  BulletSpeed: 1
-  FireCoolDown: 0.1
+  PlayerDeath: 1
+  PlayerPrefab: {fileID: 7959756263687130379, guid: 47fcb72728bd2464791ef9938d1476e8, type: 3}
+  BulletSpeed: 20
+  FireCoolDown: 0.01
+  BulletPrefab: {fileID: 5678828379821173387, guid: 0aa572828aa8db84787e9643be7c2f27, type: 3}
   AsteroidSpeed: 10
   AsteroidSize: 1
   AsteroidYOffset: 2
   AsteroidSpawnBoxY: 20
   AsteroidSpawnPause: 3
-  AsteroidCount: 100
+  AsteroidCount: 500
   SpawnCycleModifier: 1.5
+  AsteroidPrefab: {fileID: 4616730803946354224, guid: 2adc006999a614c4caa1750fdabf9335, type: 3}
   ScreenSize:
     x: 17
     y: 9
-  PlayerPrefab: {fileID: 7959756263687130379, guid: 47fcb72728bd2464791ef9938d1476e8, type: 3}
-  AsteroidPrefab: {fileID: 4616730803946354224, guid: 2adc006999a614c4caa1750fdabf9335, type: 3}
-  BulletPrefab: {fileID: 5678828379821173387, guid: 0aa572828aa8db84787e9643be7c2f27, type: 3}
 --- !u!114 &7228960001665089041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,5 +76,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPlayer: 1
   PlayerMovement: 1
+  BulletSpawner: 0
   SpawnAsteroids: 1
   AsteroidMover: 1
