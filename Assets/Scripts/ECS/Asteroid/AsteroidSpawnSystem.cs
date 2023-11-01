@@ -17,6 +17,7 @@ namespace AsteroidECS
         {
             _wave = 1;
             state.RequireForUpdate<GameManagerECS>();
+            state.RequireForUpdate<PlayerECS.Player>();
             state.RequireForUpdate<CoreECS.Execute.AsteroidSpawner>();
         }
 
@@ -45,7 +46,7 @@ namespace AsteroidECS
                     {
                         Position = new float3
                         {
-                            x = 17 - (rand.NextFloat() * xField),
+                            x = gameManager.ScreenSize.x - (rand.NextFloat() * xField),
                             y = gameManager.AsteroidYOffset + (gameManager.AsteroidSpawnBoxY * rand.NextFloat()),
                             z = 0
                         },

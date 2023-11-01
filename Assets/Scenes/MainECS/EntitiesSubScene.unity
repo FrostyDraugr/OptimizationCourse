@@ -140,12 +140,16 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: AsteroidSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: AsteroidYOffset
-      value: 2
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: AsteroidSpawnPause
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: SpawnCycleModifier
