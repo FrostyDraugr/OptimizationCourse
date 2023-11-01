@@ -24,6 +24,8 @@ namespace CoreECS.Execute
                 if(authoring.PlayerMovement) AddComponent<PlayerMovement>(entity);
                 if(authoring.SpawnAsteroids) AddComponent<AsteroidSpawner>(entity);
                 if(authoring.AsteroidMover) AddComponent<AsteroidMover>(entity);
+
+
             }
         }
     }

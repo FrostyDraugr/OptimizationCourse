@@ -6,9 +6,17 @@ namespace CoreECS
 {
     public class GameManagerECSAuthoring : MonoBehaviour
     {
+        [Header("Player")]
         public float PlayerSpeed;
+        public bool PlayerDeath;
+        public GameObject PlayerPrefab;
+
+        [Header("Bullet")]
         public float BulletSpeed;
         public float FireCoolDown;
+        public GameObject BulletPrefab;
+
+        [Header("Asteroid")]
         public float AsteroidSpeed;
         public float AsteroidSize;
         public float AsteroidYOffset;
@@ -16,10 +24,10 @@ namespace CoreECS
         public float AsteroidSpawnPause;
         public int AsteroidCount;
         public float SpawnCycleModifier;
-        public float2 ScreenSize;
-        public GameObject PlayerPrefab;
         public GameObject AsteroidPrefab;
-        public GameObject BulletPrefab;
+
+        [Header("Misc")]
+        public float2 ScreenSize;
 
 
         class Baker :Baker<GameManagerECSAuthoring>
@@ -31,6 +39,7 @@ namespace CoreECS
                 AddComponent(entity, new GameManagerECS
                 {
                     PlayerSpeed = authoring.PlayerSpeed,
+                    PlayerDeath = authoring.PlayerDeath,
                     BulletSpeed = authoring.BulletSpeed,
                     FireCoolDown = authoring.FireCoolDown,
                     AsteroidSpeed = authoring.AsteroidSpeed,
@@ -56,6 +65,7 @@ namespace CoreECS
     public struct GameManagerECS : IComponentData
     {
         public float PlayerSpeed;
+        public bool PlayerDeath;
         public float BulletSpeed;
         public float FireCoolDown;
         public float AsteroidSpeed;

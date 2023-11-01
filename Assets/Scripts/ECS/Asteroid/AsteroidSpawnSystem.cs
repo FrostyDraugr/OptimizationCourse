@@ -4,6 +4,7 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace AsteroidECS
 {
@@ -34,12 +35,14 @@ namespace AsteroidECS
             int spawnNum = gameManager.AsteroidCount * (int)(gameManager.SpawnCycleModifier * _wave);
 
             //Could randomize a random seed since this code only runs once per spawn
-            var rand = new Random(1337);
+            var rand = new Random((uint)_wave);
 
             float xField = gameManager.ScreenSize.x * 2;
-
+                //UnityEngine.Debug.Log("Spawn Count" + spawnNum);
                 for(int i = 0; i < spawnNum; i++)
                 {
+                    //DID NOT thinkt this through, ofc I can't access them like I did before if I add them to the buffer.....
+                    //SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged).Instantiate(gameManager.AsteroidPrefab)
                     Entity asteroid = state.EntityManager.Instantiate(gameManager.AsteroidPrefab);
 
                     state.EntityManager.SetComponentData(asteroid, new LocalTransform

@@ -136,8 +136,24 @@ PrefabInstance:
       value: GameManagerECS
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: PlayerDeath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: PlayerSpeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 5678828379821173387, guid: 0aa572828aa8db84787e9643be7c2f27, type: 3}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: FireCoolDown
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: AsteroidCount
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: AsteroidSpeed
@@ -145,7 +161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: AsteroidYOffset
-      value: -4
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: AsteroidSpawnBoxY
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: AsteroidSpawnPause
@@ -153,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: SpawnCycleModifier
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: SpawnPlayer
