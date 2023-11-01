@@ -47,8 +47,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: 5
   BulletSpeed: 1
+  FireCoolDown: 0
   AsteroidSpeed: 1
   AsteroidSize: 1
+  AsteroidYOffset: 1
+  AsteroidSpawnBoxY: 4
+  AsteroidSpawnPause: 4
+  AsteroidCount: 3
+  SpawnCycleModifier: 1.5
   ScreenSize:
     x: 17
     y: 9
@@ -67,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7b87bd48c55804a975c95ca4eb09b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPlayer: 0
-  PlayerMovement: 0
-  SpawnAsteroids: 0
+  SpawnPlayer: 1
+  PlayerMovement: 1
+  SpawnAsteroids: 1
+  AsteroidMover: 1

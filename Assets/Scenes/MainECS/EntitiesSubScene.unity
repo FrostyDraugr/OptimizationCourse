@@ -139,6 +139,18 @@ PrefabInstance:
       propertyPath: PlayerSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: AsteroidYOffset
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: AsteroidSpawnPause
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
+      propertyPath: SpawnCycleModifier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: SpawnPlayer
       value: 1
@@ -149,7 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: SpawnAsteroids
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7478676720424029355, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: m_LocalPosition.x
