@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: PlayerDeath
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: PlayerSpeed
@@ -153,11 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 5678828379821173387, guid: 0aa572828aa8db84787e9643be7c2f27, type: 3}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: FireCoolDown
-      value: 0.01
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: AsteroidCount
-      value: 500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: AsteroidSpeed
@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: AsteroidSpawnPause
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: SpawnCycleModifier
