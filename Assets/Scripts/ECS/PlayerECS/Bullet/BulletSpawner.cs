@@ -25,6 +25,7 @@ namespace BulletECS
             GameManagerECS gameManager = SystemAPI.GetSingleton<GameManagerECS>();
             var player = SystemAPI.GetSingleton<PlayerECS.Player>();
             var playerTransform = SystemAPI.GetComponentRW<LocalTransform>(player.Entity);
+            var yPos = playerTransform.ValueRO.Position.y + 1f;
 
             if (SystemAPI.Time.ElapsedTime > _lastSpawned + gameManager.FireCoolDown)
             {
@@ -36,16 +37,16 @@ namespace BulletECS
                     {
                         Position = new float3
                         {
-                            x = playerTransform.ValueRW.Position.x,
-                            y = playerTransform.ValueRW.Position.y + 1f,
+                            x = playerTransform.ValueRO.Position.x,
+                            y = yPos,
                             z = 0
                         },
                         Scale = 1f,
                         Rotation = quaternion.identity
                     }
                     );
+                    _lastSpawned = SystemAPI.Time.ElapsedTime;
                 }
-                _lastSpawned = SystemAPI.Time.ElapsedTime;
             }
         }
     }

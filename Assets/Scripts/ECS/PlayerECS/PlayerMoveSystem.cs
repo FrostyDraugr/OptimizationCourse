@@ -38,6 +38,7 @@ namespace PlayerECS
 
             var border = gameManager.ScreenSize;
 
+            //Contain Player within screen
             if (newPos.x + input.x < -border.x || newPos.x + input.x > border.x)
             {
                 input.x *= 0;
@@ -48,9 +49,7 @@ namespace PlayerECS
                 input.y *= 0;
             }
 
-            newPos += input;
-
-            playerTransform.ValueRW.Position = newPos;
+            playerTransform.ValueRW.Position += input;
 
 
         }

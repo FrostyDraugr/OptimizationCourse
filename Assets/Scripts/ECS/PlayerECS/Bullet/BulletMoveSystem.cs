@@ -4,13 +4,6 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 using Unity.Mathematics;
-using System.ComponentModel;
-using Unity.Collections;
-using static UnityEngine.EventSystems.EventTrigger;
-using UnityEditor.SceneManagement;
-using Unity.Burst.Intrinsics;
-using System;
-using UnityEditor.Experimental.GraphView;
 
 namespace BulletECS
 {
@@ -28,7 +21,7 @@ namespace BulletECS
         public void OnUpdate(ref SystemState state)
         {
             var gameManager = SystemAPI.GetSingleton<GameManagerECS>();
-            var killY = gameManager.ScreenSize.y + 1;
+            var killY = gameManager.ScreenSize.y + 1f;
 
             foreach (var (bulletTransform, entity) in SystemAPI.Query<RefRW<LocalTransform>>().WithAll<BulletMovement>().WithEntityAccess())
             {
@@ -37,45 +30,12 @@ namespace BulletECS
 
                 //bulletTransform.ValueRW.Position = oldPos + offSet;
 
-                //bulletTransform.ValueRW.Position.y += SystemAPI.Time.DeltaTime * gameManager.BulletSpeed;
+                bulletTransform.ValueRW.Position.y += SystemAPI.Time.DeltaTime * gameManager.BulletSpeed;
 
-                //SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged).DestroyEntity(entity);
-
-                //var systemBase = SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>();
-
+                //Add Entity to Destroy Buffer
                 if (bulletTransform.ValueRW.Position.y > killY)
-                {
                     SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged).DestroyEntity(entity);
-                    continue;
-                }
-
-            }
-            var job = new BulletMovementJob
-            {
-                YMove = SystemAPI.Time.DeltaTime * gameManager.BulletSpeed,
-                //KillY = killY,
-                //Bullet = entity,
-                //Buffer = SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged),
-            };
-            job.ScheduleParallel();
-
-        }
-
-        [WithAll(typeof(BulletMovement))]
-        [BurstCompile]
-        public partial struct BulletMovementJob : IJobEntity
-        {
-            public float YMove;
-            // float KillY;
-            //public Entity Bullet;
-            //public EntityCommandBuffer Buffer;
-            //public RefRW<LocalTransform> transform;
-
-            public void Execute(ref LocalTransform transform)
-            {
-                transform.Position.y += YMove;
             }
         }
-
     }
 }
