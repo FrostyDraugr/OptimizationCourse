@@ -49,16 +49,16 @@ namespace BulletECS
                     continue;
                 }
 
-                var job = new BulletMovementJob
-                {
-                    YMove = SystemAPI.Time.DeltaTime * gameManager.BulletSpeed,
-                    //KillY = killY,
-                    //Bullet = entity,
-                    //Buffer = SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged),
-                };
-
-                job.ScheduleParallel();
             }
+            var job = new BulletMovementJob
+            {
+                YMove = SystemAPI.Time.DeltaTime * gameManager.BulletSpeed,
+                //KillY = killY,
+                //Bullet = entity,
+                //Buffer = SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged),
+            };
+            job.ScheduleParallel();
+
         }
 
         [WithAll(typeof(BulletMovement))]

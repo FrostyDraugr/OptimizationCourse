@@ -29,9 +29,8 @@ namespace AsteroidECS
 
             foreach (var (asteroidTransform, entity) in SystemAPI.Query<RefRW<LocalTransform>>().WithAll<AsteroidMovement>().WithEntityAccess())
             {
-                bool destroyed = false; 
-                asteroidTransform.ValueRW.Position.y += -(gameManager.AsteroidSpeed * SystemAPI.Time.DeltaTime);
-                
+                bool destroyed = false;
+               
                 //I don't like getting a new Query list every single time, I would prefer to just have one list updated once per frame.
                 //But I got a compile error stating that Query requests are only allowed in foreach loops, sure
                 foreach (var (bulletTransform, bulletEntity) in SystemAPI.Query<RefRW<LocalTransform>>().WithAll<BulletMovement>().WithEntityAccess())
@@ -51,12 +50,32 @@ namespace AsteroidECS
                 if (asteroidTransform.ValueRW.Position.y < -gameManager.ScreenSize.y - 1)
                     SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged).DestroyEntity(entity);
 
-                if(gameManager.PlayerDeath)
+                if (gameManager.PlayerDeath)
                     if (math.distance(playerTransform.ValueRO.Position, asteroidTransform.ValueRO.Position) < 1.0f)
                     {
                         SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged).DestroyEntity(player.Entity);
                     }
             }
+
+            var job = new AsteroidMoveJob
+            {
+                YMove = gameManager.AsteroidSpeed * SystemAPI.Time.DeltaTime
+            };
+
+            job.ScheduleParallel();
+        }
+        
+    }
+
+    [WithAll(typeof(AsteroidMovement))]
+    [BurstCompile]
+    public partial struct AsteroidMoveJob : IJobEntity
+    {
+        public float YMove;
+
+        public void Execute(ref LocalTransform transform)
+        {
+            transform.Position.y -= YMove;
         }
     }
 }
