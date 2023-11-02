@@ -21,6 +21,7 @@ namespace BulletECS
         public void OnUpdate(ref SystemState state)
         {
             var gameManager = SystemAPI.GetSingleton<GameManagerECS>();
+            var killY = gameManager.ScreenSize.y + 1f;
 
             foreach (var (bulletTransform, entity) in SystemAPI.Query<RefRW<LocalTransform>>().WithAll<BulletMovement>().WithEntityAccess())
             {
@@ -32,7 +33,7 @@ namespace BulletECS
                 bulletTransform.ValueRW.Position.y += SystemAPI.Time.DeltaTime * gameManager.BulletSpeed;
 
                 //Add Entity to Destroy Buffer
-                if (bulletTransform.ValueRW.Position.y > gameManager.ScreenSize.y + 1)
+                if (bulletTransform.ValueRW.Position.y > killY)
                     SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged).DestroyEntity(entity);
             }
         }
