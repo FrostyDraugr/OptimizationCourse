@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: BulletSpeed
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: PlayerDeath
@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 5678828379821173387, guid: 0aa572828aa8db84787e9643be7c2f27, type: 3}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: FireCoolDown
-      value: 0.01
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5831085200201084282, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: AsteroidCount
@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228960001665089041, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: SpawnAsteroids
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7478676720424029355, guid: 83d72dd8dc5782b47956a67eff9d2ec5, type: 3}
       propertyPath: m_LocalPosition.x

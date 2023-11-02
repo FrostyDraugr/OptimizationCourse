@@ -33,5 +33,10 @@ namespace BulletECS
     {
         public Entity Entity;
     }
+
+    public struct BulletDestroy : IComponentData
+    {
+    
+    }
 }
 
